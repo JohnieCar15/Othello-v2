@@ -1,0 +1,2 @@
+/usr/bin/ar qc libothello.a CMakeFiles/othello.dir/src/othello.cpp.o
+/usr/bin/ranlib libothello.a
