@@ -50,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/othello.dir/DependInfo.cmake"
+  "CMakeFiles/game.dir/DependInfo.cmake"
+  "CMakeFiles/board.dir/DependInfo.cmake"
   "CMakeFiles/Othello-v2.dir/DependInfo.cmake"
   )

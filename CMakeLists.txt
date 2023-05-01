@@ -50,8 +50,11 @@ find_package(SDL2 REQUIRED)
 include_directories(Othello-v2 ${SDL2_INCLUDE_DIRS})
 include_directories(Othello-v2 images)
 
-add_library(othello src/othello.cpp)
-link_libraries(othello)
+add_library(game src/game.cpp)
+link_libraries(game)
+
+add_library(board src/board.cpp)
+link_libraries(board)
 
 add_executable(Othello-v2 src/main.cpp)
 target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/othello.dir/src/othello.cpp.o"
-  "CMakeFiles/othello.dir/src/othello.cpp.o.d"
+  "CMakeFiles/othello.dir/src/game.cpp.o"
+  "CMakeFiles/othello.dir/src/game.cpp.o.d"
   "libothello.a"
   "libothello.pdb"
 )

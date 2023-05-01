@@ -1,4 +1,5 @@
-/home/johnie/Othello-v2/build/CMakeFiles/othello.dir
+/home/johnie/Othello-v2/build/CMakeFiles/game.dir
+/home/johnie/Othello-v2/build/CMakeFiles/board.dir
 /home/johnie/Othello-v2/build/CMakeFiles/Othello-v2.dir
 /home/johnie/Othello-v2/build/CMakeFiles/package.dir
 /home/johnie/Othello-v2/build/CMakeFiles/package_source.dir

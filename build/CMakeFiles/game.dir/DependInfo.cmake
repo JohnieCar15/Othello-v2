@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/johnie/Othello-v2/src/game.cpp" "CMakeFiles/othello.dir/src/game.cpp.o" "gcc" "CMakeFiles/othello.dir/src/game.cpp.o.d"
+  "/home/johnie/Othello-v2/src/game.cpp" "CMakeFiles/game.dir/src/game.cpp.o" "gcc" "CMakeFiles/game.dir/src/game.cpp.o.d"
   )
 
 # Targets to which this target links.

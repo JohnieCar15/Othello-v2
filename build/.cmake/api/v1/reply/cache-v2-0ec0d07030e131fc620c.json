@@ -1664,6 +1664,18 @@
 			],
 			"type" : "STRING",
 			"value" : "DESKTOP-R8B9OOK"
+		},
+		{
+			"name" : "board_LIB_DEPENDS",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Dependencies for the target"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "general;game;"
 		}
 	],
 	"kind" : "cache",

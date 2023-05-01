@@ -1,1 +1,1 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/Othello-v2.dir/src/main.cpp.o -o Othello-v2  libothello.a -L/usr/lib/x86_64-linux-gnu  -lSDL2 
+/usr/bin/g++ -g -rdynamic CMakeFiles/Othello-v2.dir/src/main.cpp.o -o Othello-v2  libgame.a libboard.a -L/usr/lib/x86_64-linux-gnu  -lSDL2 libgame.a 

@@ -1,4 +1,4 @@
-#include "othello.h"
+#include "game.h"
 
 Game::Game() {};
 Game::~Game() {};
@@ -23,14 +23,15 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         }
         isRunning = true;
 
-        image = SDL_LoadBMP("Board.png");
-        if (!image) {
-            std::cout << SDL_GetError() << "\n";
-        }
+        const char *path = "../images/Board.bmp";
+        image = SDL_LoadBMP(path);
         texture = SDL_CreateTextureFromSurface(renderer, image);
         if (texture) {
-            std::cout << "Texture successfully loaded" << "\n";
+            std::cout << "Background loaded" << "\n";
         }
+
+        board = new Board();
+        board->init();
 
     } else {
         isRunning = false;
@@ -44,16 +45,33 @@ void Game::handleEvents() {
         case SDL_QUIT:
             isRunning = false;
             break;
+        case SDL_MOUSEMOTION:
+            int x, y;
+            SDL_GetMouseState(&x, &y);
+            std::cout << x << " " << y << "\n";
+            break;
         case SDL_MOUSEBUTTONDOWN:
-            std::cout << "Mouse was pressed" << "\n";
+            if (SDL_BUTTON_LEFT == event.button.button) {
+                std::cout << "Left Mouse click" << "\n";
+                coordinates();
+            }
             break;
         default:
             break;
     }
 }
 
+void Game::coordinates() {
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    float xf = static_cast<float>(x) / 100;
+    float yf = static_cast<float>(y) / 100;
+
+    std::cout << floor(xf) << " " << floor(yf) << "\n";
+}
+
 void Game::render() {
-    // SDL_RenderClear(renderer);
+    SDL_RenderClear(renderer);
     SDL_RenderCopy(renderer, texture, NULL, NULL);
     SDL_RenderPresent(renderer);
 }

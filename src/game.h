@@ -1,6 +1,10 @@
 #include <SDL2/SDL.h>
-
 #include <iostream>
+#include <stdlib.h>
+#include <cmath>
+#include <math.h>
+
+#include "board.h"
 
 class Game {
 public:
@@ -12,8 +16,9 @@ public:
     void render();
     void clean();
     void update();
-
     bool running() { return isRunning; }
+
+    void coordinates();
 
 
 private:
@@ -22,5 +27,6 @@ private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Surface *image;
+    Board *board;
 
 };

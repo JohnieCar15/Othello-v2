@@ -320,6 +320,9 @@ SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
 //Name of the computer/site where compile is being run
 SITE:STRING=DESKTOP-R8B9OOK
 
+//Dependencies for the target
+board_LIB_DEPENDS:STATIC=general;game;
+
 
 ########################
 # INTERNAL cache entries

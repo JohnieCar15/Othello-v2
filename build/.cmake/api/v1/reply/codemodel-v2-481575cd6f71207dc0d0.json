@@ -16,7 +16,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -32,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -41,15 +43,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Othello-v2::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Othello-v2-Debug-21066f0ddc5933fadff8.json",
+					"jsonFile" : "target-Othello-v2-Debug-5ba38a406c56446cf648.json",
 					"name" : "Othello-v2",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "othello::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-othello-Debug-f7d7d44e7d9b60a17d51.json",
-					"name" : "othello",
+					"id" : "board::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-board-Debug-03b2fb8e95ae019cc465.json",
+					"name" : "board",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "game::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-game-Debug-239cc51fbe408806014d.json",
+					"name" : "game",
 					"projectIndex" : 0
 				}
 			]

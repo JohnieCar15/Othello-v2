@@ -137,17 +137,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named othello
+# Target rules for targets named game
 
 # Build rule for target.
-othello: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 othello
-.PHONY : othello
+game: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game
+.PHONY : game
 
 # fast build rule for target.
-othello/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/othello.dir/build.make CMakeFiles/othello.dir/build
-.PHONY : othello/fast
+game/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
+.PHONY : game/fast
+
+#=============================================================================
+# Target rules for targets named board
+
+# Build rule for target.
+board: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 board
+.PHONY : board
+
+# fast build rule for target.
+board/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/board.dir/build.make CMakeFiles/board.dir/build
+.PHONY : board/fast
 
 #=============================================================================
 # Target rules for targets named Othello-v2
@@ -161,6 +174,54 @@ Othello-v2: cmake_check_build_system
 Othello-v2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Othello-v2.dir/build.make CMakeFiles/Othello-v2.dir/build
 .PHONY : Othello-v2/fast
+
+src/board.o: src/board.cpp.o
+.PHONY : src/board.o
+
+# target to build an object file
+src/board.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/board.dir/build.make CMakeFiles/board.dir/src/board.cpp.o
+.PHONY : src/board.cpp.o
+
+src/board.i: src/board.cpp.i
+.PHONY : src/board.i
+
+# target to preprocess a source file
+src/board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/board.dir/build.make CMakeFiles/board.dir/src/board.cpp.i
+.PHONY : src/board.cpp.i
+
+src/board.s: src/board.cpp.s
+.PHONY : src/board.s
+
+# target to generate assembly for a file
+src/board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/board.dir/build.make CMakeFiles/board.dir/src/board.cpp.s
+.PHONY : src/board.cpp.s
+
+src/game.o: src/game.cpp.o
+.PHONY : src/game.o
+
+# target to build an object file
+src/game.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/game.cpp.o
+.PHONY : src/game.cpp.o
+
+src/game.i: src/game.cpp.i
+.PHONY : src/game.i
+
+# target to preprocess a source file
+src/game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/game.cpp.i
+.PHONY : src/game.cpp.i
+
+src/game.s: src/game.cpp.s
+.PHONY : src/game.s
+
+# target to generate assembly for a file
+src/game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/game.cpp.s
+.PHONY : src/game.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -186,30 +247,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Othello-v2.dir/build.make CMakeFiles/Othello-v2.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/othello.o: src/othello.cpp.o
-.PHONY : src/othello.o
-
-# target to build an object file
-src/othello.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/othello.dir/build.make CMakeFiles/othello.dir/src/othello.cpp.o
-.PHONY : src/othello.cpp.o
-
-src/othello.i: src/othello.cpp.i
-.PHONY : src/othello.i
-
-# target to preprocess a source file
-src/othello.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/othello.dir/build.make CMakeFiles/othello.dir/src/othello.cpp.i
-.PHONY : src/othello.cpp.i
-
-src/othello.s: src/othello.cpp.s
-.PHONY : src/othello.s
-
-# target to generate assembly for a file
-src/othello.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/othello.dir/build.make CMakeFiles/othello.dir/src/othello.cpp.s
-.PHONY : src/othello.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -221,13 +258,17 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... Othello-v2"
-	@echo "... othello"
+	@echo "... board"
+	@echo "... game"
+	@echo "... src/board.o"
+	@echo "... src/board.i"
+	@echo "... src/board.s"
+	@echo "... src/game.o"
+	@echo "... src/game.i"
+	@echo "... src/game.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/othello.o"
-	@echo "... src/othello.i"
-	@echo "... src/othello.s"
 .PHONY : help
 
 

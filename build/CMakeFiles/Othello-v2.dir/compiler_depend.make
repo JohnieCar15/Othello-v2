@@ -359,8 +359,11 @@ CMakeFiles/Othello-v2.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/SDL2/SDL_version.h \
   /usr/include/SDL2/SDL_locale.h \
   /usr/include/SDL2/SDL_misc.h \
-  ../src/othello.h
+  ../src/game.h \
+  ../src/board.h
 
+
+../src/game.h:
 
 /usr/include/SDL2/SDL_locale.h:
 
@@ -559,6 +562,8 @@ CMakeFiles/Othello-v2.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/lib/gcc/x86_64-linux-gnu/11/include/avx512vlbwintrin.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h:
+
+../src/board.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/lwpintrin.h:
 
@@ -1027,8 +1032,6 @@ CMakeFiles/Othello-v2.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
 /usr/include/c++/11/bits/specfun.h:
-
-../src/othello.h:
 
 /usr/include/c++/11/limits:
 

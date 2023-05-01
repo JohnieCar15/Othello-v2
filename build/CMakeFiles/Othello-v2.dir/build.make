@@ -92,7 +92,9 @@ Othello__v2_EXTERNAL_OBJECTS =
 
 Othello-v2: CMakeFiles/Othello-v2.dir/src/main.cpp.o
 Othello-v2: CMakeFiles/Othello-v2.dir/build.make
-Othello-v2: libothello.a
+Othello-v2: libgame.a
+Othello-v2: libboard.a
+Othello-v2: libgame.a
 Othello-v2: CMakeFiles/Othello-v2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/johnie/Othello-v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Othello-v2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Othello-v2.dir/link.txt --verbose=$(VERBOSE)

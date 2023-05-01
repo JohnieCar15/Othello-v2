@@ -69,28 +69,28 @@ include CMakeFiles/othello.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/othello.dir/flags.make
 
-CMakeFiles/othello.dir/src/othello.cpp.o: CMakeFiles/othello.dir/flags.make
-CMakeFiles/othello.dir/src/othello.cpp.o: ../src/othello.cpp
-CMakeFiles/othello.dir/src/othello.cpp.o: CMakeFiles/othello.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/johnie/Othello-v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/othello.dir/src/othello.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/othello.dir/src/othello.cpp.o -MF CMakeFiles/othello.dir/src/othello.cpp.o.d -o CMakeFiles/othello.dir/src/othello.cpp.o -c /home/johnie/Othello-v2/src/othello.cpp
+CMakeFiles/othello.dir/src/game.cpp.o: CMakeFiles/othello.dir/flags.make
+CMakeFiles/othello.dir/src/game.cpp.o: ../src/game.cpp
+CMakeFiles/othello.dir/src/game.cpp.o: CMakeFiles/othello.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/johnie/Othello-v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/othello.dir/src/game.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/othello.dir/src/game.cpp.o -MF CMakeFiles/othello.dir/src/game.cpp.o.d -o CMakeFiles/othello.dir/src/game.cpp.o -c /home/johnie/Othello-v2/src/game.cpp
 
-CMakeFiles/othello.dir/src/othello.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/src/othello.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/johnie/Othello-v2/src/othello.cpp > CMakeFiles/othello.dir/src/othello.cpp.i
+CMakeFiles/othello.dir/src/game.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/othello.dir/src/game.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/johnie/Othello-v2/src/game.cpp > CMakeFiles/othello.dir/src/game.cpp.i
 
-CMakeFiles/othello.dir/src/othello.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/src/othello.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/johnie/Othello-v2/src/othello.cpp -o CMakeFiles/othello.dir/src/othello.cpp.s
+CMakeFiles/othello.dir/src/game.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/othello.dir/src/game.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/johnie/Othello-v2/src/game.cpp -o CMakeFiles/othello.dir/src/game.cpp.s
 
 # Object files for target othello
 othello_OBJECTS = \
-"CMakeFiles/othello.dir/src/othello.cpp.o"
+"CMakeFiles/othello.dir/src/game.cpp.o"
 
 # External object files for target othello
 othello_EXTERNAL_OBJECTS =
 
-libothello.a: CMakeFiles/othello.dir/src/othello.cpp.o
+libothello.a: CMakeFiles/othello.dir/src/game.cpp.o
 libothello.a: CMakeFiles/othello.dir/build.make
 libothello.a: CMakeFiles/othello.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/johnie/Othello-v2/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libothello.a"
