@@ -17,7 +17,6 @@ public:
     void clean();
     void update();
     bool running() { return isRunning; }
-
     void coordinates();
 
 
@@ -26,7 +25,7 @@ private:
     SDL_Texture *texture;
     SDL_Window *window;
     SDL_Renderer *renderer;
-    SDL_Surface *image;
     Board *board;
+    SDL_Rect srcR, destR;
 
 };

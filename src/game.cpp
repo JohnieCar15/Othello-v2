@@ -24,8 +24,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         isRunning = true;
 
         const char *path = "../images/Board.bmp";
-        image = SDL_LoadBMP(path);
+        SDL_Surface *image = SDL_LoadBMP(path);
         texture = SDL_CreateTextureFromSurface(renderer, image);
+        SDL_FreeSurface(image);
         if (texture) {
             std::cout << "Background loaded" << "\n";
         }
@@ -50,6 +51,7 @@ void Game::handleEvents() {
             SDL_GetMouseState(&x, &y);
             std::cout << x << " " << y << "\n";
             break;
+
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::cout << "Left Mouse click" << "\n";
@@ -78,11 +80,12 @@ void Game::render() {
 
 void Game::clean() {
     SDL_DestroyTexture(texture);
-    SDL_FreeSurface(image);
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
     std::cout << "Game Cleaned" << "\n";
 }
 
-void Game::update() {}
+void Game::update() {
+
+}
