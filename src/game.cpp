@@ -31,6 +31,9 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
             std::cout << "Background loaded" << "\n";
         }
 
+        destR.h = 800;
+        destR.w = 800;
+
         board = new Board();
         board->init();
 
@@ -46,16 +49,17 @@ void Game::handleEvents() {
         case SDL_QUIT:
             isRunning = false;
             break;
-        case SDL_MOUSEMOTION:
-            int x, y;
-            SDL_GetMouseState(&x, &y);
-            std::cout << x << " " << y << "\n";
-            break;
+        // case SDL_MOUSEMOTION:
+        //     int x, y;
+        //     SDL_GetMouseState(&x, &y);
+        //     std::cout << x << " " << y << "\n";
+        //     break;
 
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
-                std::cout << "Left Mouse click" << "\n";
-                coordinates();
+                std::pair p = coordinates();
+                std::cout << p.first << " " << p.second << "\n";
+                board->renderPiece(renderer, p);
             }
             break;
         default:
@@ -63,13 +67,16 @@ void Game::handleEvents() {
     }
 }
 
-void Game::coordinates() {
+
+std::pair<int, int> Game::coordinates() {
     int x, y;
     SDL_GetMouseState(&x, &y);
     float xf = static_cast<float>(x) / 100;
     float yf = static_cast<float>(y) / 100;
 
-    std::cout << floor(xf) << " " << floor(yf) << "\n";
+    std::pair p = std::make_pair(floor(xf), floor(yf));
+
+    return p;
 }
 
 void Game::render() {

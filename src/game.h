@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <cmath>
 #include <math.h>
+#include <utility>
+
 
 #include "board.h"
 
@@ -17,7 +19,7 @@ public:
     void clean();
     void update();
     bool running() { return isRunning; }
-    void coordinates();
+    std::pair<int, int> coordinates();
 
 
 private:
