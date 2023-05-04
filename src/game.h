@@ -24,10 +24,9 @@ public:
 
 private:
     bool isRunning;
-    SDL_Texture *texture;
+    SDL_Texture *background;
     SDL_Window *window;
     SDL_Renderer *renderer;
     Board *board;
-    SDL_Rect srcR, destR;
 
 };

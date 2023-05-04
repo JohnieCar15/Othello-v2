@@ -9,26 +9,23 @@ int main ( int argc, char *argv[] )
 	(void) argc;
 	(void) argv;
 
-	// const int FPS = 60;
-	// const Uint32 frameDelay = 1000 / 60;
-
-	// Uint32 frameStart;
-	// Uint32 frameTime;
-
 	game = new Game();
 	game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 800, false);
+	// Render board with pieces
 	game->render();
 	while (game->running()) {
-		// frameStart = SDL_GetTicks();
 
 		game->handleEvents();
+		// Display board with available moves
+		// Take input from user
+		// Find coordinates of click
+		// Check if valid coordinates
+		// Enter piece into grid
+		// Flip pieces in between
+		// Render to screen
+
 		game->update();
 
-		// frameTime = SDL_GetTicks() - frameStart;
-
-		// if (frameDelay > frameTime) {
-		// 	SDL_Delay(frameDelay - frameTime);
-		// }
 	}
 
 	game->clean();

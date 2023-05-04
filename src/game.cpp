@@ -25,14 +25,11 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 
         const char *path = "../images/Board.bmp";
         SDL_Surface *image = SDL_LoadBMP(path);
-        texture = SDL_CreateTextureFromSurface(renderer, image);
+        background = SDL_CreateTextureFromSurface(renderer, image);
         SDL_FreeSurface(image);
-        if (texture) {
+        if (background) {
             std::cout << "Background loaded" << "\n";
         }
-
-        destR.h = 800;
-        destR.w = 800;
 
         board = new Board();
         board->init();
@@ -58,8 +55,8 @@ void Game::handleEvents() {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::pair p = coordinates();
-                std::cout << p.first << " " << p.second << "\n";
                 board->renderPiece(renderer, p);
+                std::cout << "Mouse click" << "\n";
             }
             break;
         default:
@@ -81,12 +78,16 @@ std::pair<int, int> Game::coordinates() {
 
 void Game::render() {
     SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    // Draws background
+    SDL_RenderCopy(renderer, background, NULL, NULL);
+    // Draw pieces onto board
+    board->drawBoard(renderer);
+    /* TODO: Draw available moves */
     SDL_RenderPresent(renderer);
 }
 
 void Game::clean() {
-    SDL_DestroyTexture(texture);
+    SDL_DestroyTexture(background);
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();
