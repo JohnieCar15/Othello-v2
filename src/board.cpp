@@ -113,9 +113,9 @@ void Board::drawBoard(SDL_Renderer *renderer) {
         }
     }
 
+    // Note this is only for black
     moves = availableMoves();
     for (std::pair<int, int> i : moves) {
-        // std::cout << i.first << " " << i.second << "\n";
         draw_move(renderer, 50 + (100 * i.first), 50 + (100 * i.second), 40);
     }
 

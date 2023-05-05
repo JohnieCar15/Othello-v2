@@ -45,6 +45,7 @@ void Game::handleEvents() {
     switch(event.type) {
         case SDL_QUIT:
             isRunning = false;
+            clean();
             break;
         // case SDL_MOUSEMOTION:
         //     int x, y;
