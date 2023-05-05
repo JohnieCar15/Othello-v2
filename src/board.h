@@ -16,7 +16,7 @@ public:
     ~Board();
 
     void init();
-    void renderPiece(SDL_Renderer *renderer, std::pair<int, int> coordinates);
+    void insertPiece(std::pair<int, int> coordinates);
     void drawBoard(SDL_Renderer *renderer);
     bool topLeft(int x, int y);
     bool top(int x, int y);

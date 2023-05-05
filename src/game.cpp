@@ -55,7 +55,8 @@ void Game::handleEvents() {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::pair p = coordinates();
-                board->renderPiece(renderer, p);
+                board->insertPiece(p);
+                render();
                 std::cout << "Mouse click" << "\n";
             }
             break;

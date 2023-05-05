@@ -122,7 +122,7 @@ void Board::drawBoard(SDL_Renderer *renderer) {
 
 }
 
-void Board::renderPiece(SDL_Renderer *renderer, std::pair<int, int> coordinates) {
+void Board::insertPiece(std::pair<int, int> coordinates) {
     bool flag = false;
     for (std::pair<int, int> p : moves) {
         if (p.first == coordinates.first && p.second == coordinates.second) {
@@ -132,20 +132,11 @@ void Board::renderPiece(SDL_Renderer *renderer, std::pair<int, int> coordinates)
 
     if (!flag) return;
 
-    // Black for now
-    SDL_Color color;
-    color.r = 0;
-    color.g = 0;
-    color.b = 0;
-
     int x = coordinates.first;
     int y = coordinates.second;
 
     grid[x][y] = Piece::BLACK;
-
-    draw_piece(renderer, 50 + (100 * x), 50 + (100 * y), 40, color);
     flipPieces(coordinates.first, coordinates.second);
-    drawBoard(renderer);
 }
 
 bool Board::topLeft(int x, int y) {
