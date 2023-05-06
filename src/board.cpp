@@ -114,7 +114,7 @@ void Board::drawBoard(SDL_Renderer *renderer) {
     }
 
     // Note this is only for black
-    moves = availableMoves();
+    moves = availableMoves(Piece::BLACK);
     for (std::pair<int, int> i : moves) {
         draw_move(renderer, 50 + (100 * i.first), 50 + (100 * i.second), 40);
     }
@@ -122,10 +122,10 @@ void Board::drawBoard(SDL_Renderer *renderer) {
 
 }
 
-void Board::insertPiece(std::pair<int, int> coordinates) {
+void Board::insertPiece(std::pair<int, int> coordinates, Piece p) {
     bool flag = false;
-    for (std::pair<int, int> p : moves) {
-        if (p.first == coordinates.first && p.second == coordinates.second) {
+    for (std::pair<int, int> move : moves) {
+        if (move.first == coordinates.first && move.second == coordinates.second) {
             flag = true;
         }
     }
@@ -135,13 +135,13 @@ void Board::insertPiece(std::pair<int, int> coordinates) {
     int x = coordinates.first;
     int y = coordinates.second;
 
-    grid[x][y] = Piece::BLACK;
-    flipPieces(coordinates.first, coordinates.second);
+    grid[x][y] = p;
+    flipPieces(coordinates.first, coordinates.second, p);
 }
 
-bool Board::topLeft(int x, int y) {
+bool Board::topLeft(int x, int y, Piece p) {
     for (int i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--) {
-        if (grid[i][j] == Piece::BLACK) {
+        if (grid[i][j] == p) {
             if (i == x - 1) {
                 return false;
             } else {
@@ -154,9 +154,9 @@ bool Board::topLeft(int x, int y) {
     return false;
 }
 
-bool Board::top(int x, int y) {
+bool Board::top(int x, int y, Piece p) {
     for (int i = x - 1; i >= 0; i--) {
-        if (grid[i][y] == Piece::BLACK) {
+        if (grid[i][y] == p) {
             if (i == x - 1) {
                 return false;
             } else {
@@ -169,9 +169,9 @@ bool Board::top(int x, int y) {
     return false;
 }
 
-bool Board::topRight(int x, int y) {
+bool Board::topRight(int x, int y, Piece p) {
     for (int i = x - 1, j = y + 1; i >= 0 && j <= 7; i--, j++) {
-        if (grid[i][j] == Piece::BLACK) {
+        if (grid[i][j] == p) {
             if (i == x - 1) {
                 return false;
             } else {
@@ -184,9 +184,9 @@ bool Board::topRight(int x, int y) {
     return false;
 }
 
-bool Board::right(int x, int y) {
+bool Board::right(int x, int y, Piece p) {
     for (int j = y + 1; j <= 7; j++) {
-        if (grid[x][j] == Piece::BLACK) {
+        if (grid[x][j] == p) {
             if (j == y + 1) {
                 return false;
             } else {
@@ -199,9 +199,9 @@ bool Board::right(int x, int y) {
     return false;
 }
 
-bool Board::bottomRight(int x, int y) {
+bool Board::bottomRight(int x, int y, Piece p) {
     for (int i = x + 1, j = y + 1; i <= 7 && j <= 7; i++, j++) {
-        if (grid[i][j] == Piece::BLACK) {
+        if (grid[i][j] == p) {
             if (i == x + 1) {
                 return false;
             } else {
@@ -214,9 +214,9 @@ bool Board::bottomRight(int x, int y) {
     return false;
 }
 
-bool Board::bottom(int x, int y) {
+bool Board::bottom(int x, int y, Piece p) {
     for (int i = x + 1; i <= 7; i++) {
-        if (grid[i][y] == Piece::BLACK) {
+        if (grid[i][y] == p) {
             if (i == x + 1) {
                 return false;
             } else {
@@ -229,9 +229,9 @@ bool Board::bottom(int x, int y) {
     return false;
 }
 
-bool Board::bottomLeft(int x, int y) {
+bool Board::bottomLeft(int x, int y, Piece p) {
     for (int i = x + 1, j = y - 1; i <= 7 && j >= 0; i++, j--) {
-        if (grid[i][j] == Piece::BLACK) {
+        if (grid[i][j] == p) {
             if (i == x + 1) {
                 return false;
             } else {
@@ -244,9 +244,9 @@ bool Board::bottomLeft(int x, int y) {
     return false;
 }
 
-bool Board::left(int x, int y) {
+bool Board::left(int x, int y, Piece p) {
     for (int j = y - 1; j >= 0; j--) {
-        if (grid[x][j] == Piece::BLACK) {
+        if (grid[x][j] == p) {
             if (j == y - 1) {
                 return false;
             } else {
@@ -259,22 +259,22 @@ bool Board::left(int x, int y) {
     return false;
 }
 
-std::vector<std::pair<int, int>> Board::availableMoves() {
+std::vector<std::pair<int, int>> Board::availableMoves(Piece p) {
     std::vector<std::pair<int, int>> moves;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (
-                topLeft(i, j) ||
-                top(i, j) ||
-                topRight(i, j) ||
-                right(i, j) ||
-                bottomRight(i, j) ||
-                bottom(i, j) ||
-                bottomLeft(i, j) ||
-                left(i, j)
+                topLeft(i, j, p) ||
+                top(i, j, p) ||
+                topRight(i, j, p) ||
+                right(i, j, p) ||
+                bottomRight(i, j, p) ||
+                bottom(i, j, p) ||
+                bottomLeft(i, j, p) ||
+                left(i, j, p)
             ) {
-                std::pair p = std::make_pair(i, j);
-                moves.push_back(p);
+                std::pair move = std::make_pair(i, j);
+                moves.push_back(move);
             }
         }
     }
@@ -282,53 +282,53 @@ std::vector<std::pair<int, int>> Board::availableMoves() {
     return moves;
 }
 
-void Board::flipPieces(int x, int y) {
-    if (topLeft(x, y)) {
-        for (int i = x - 1, j = y - 1; grid[i][j] != Piece::BLACK; i--, j--) {
-            grid[i][j] = Piece::BLACK;
+void Board::flipPieces(int x, int y, Piece p) {
+    if (topLeft(x, y, p)) {
+        for (int i = x - 1, j = y - 1; grid[i][j] != p; i--, j--) {
+            grid[i][j] = p;
         }
     }
 
-    if (top(x, y)) {
-        for (int i = x - 1; grid[i][y] != Piece::BLACK; i--) {
-            grid[i][y] = Piece::BLACK;
+    if (top(x, y, p)) {
+        for (int i = x - 1; grid[i][y] != p; i--) {
+            grid[i][y] = p;
         }
     }
 
-    if (topRight(x, y)) {
-        for (int i = x - 1, j = y + 1; grid[i][j] != Piece::BLACK; i--, j++) {
-            grid[i][j] = Piece::BLACK;
+    if (topRight(x, y, p)) {
+        for (int i = x - 1, j = y + 1; grid[i][j] != p; i--, j++) {
+            grid[i][j] = p;
         }
     }
 
-    if (right(x, y)) {
-        for (int j = y + 1; grid[x][j] != Piece::BLACK; j++) {
-            grid[x][j] = Piece::BLACK;
+    if (right(x, y, p)) {
+        for (int j = y + 1; grid[x][j] != p; j++) {
+            grid[x][j] = p;
         }
     }
 
-    if (bottomRight(x, y)) {
-        for (int i = x + 1, j = y + 1; grid[i][j] != Piece::BLACK; i++, j++) {
-            grid[i][j] = Piece::BLACK;
+    if (bottomRight(x, y, p)) {
+        for (int i = x + 1, j = y + 1; grid[i][j] != p; i++, j++) {
+            grid[i][j] = p;
         }
     }
 
 
-    if (bottom(x, y)) {
-        for (int i = x + 1; grid[i][y] != Piece::BLACK; i++) {
-            grid[i][y] = Piece::BLACK;
+    if (bottom(x, y, p)) {
+        for (int i = x + 1; grid[i][y] != p; i++) {
+            grid[i][y] = p;
         }
     }
 
-    if (bottomLeft(x, y)) {
-        for (int i = x + 1, j = y - 1; grid[i][j] != Piece::BLACK; i++, j--) {
-            grid[i][j] = Piece::BLACK;
+    if (bottomLeft(x, y, p)) {
+        for (int i = x + 1, j = y - 1; grid[i][j] != p; i++, j--) {
+            grid[i][j] = p;
         }
     }
 
-    if (left(x, y)) {
-        for (int j = y - 1; grid[x][j] != Piece::BLACK; j--) {
-            grid[x][j] = Piece::BLACK;
+    if (left(x, y, p)) {
+        for (int j = y - 1; grid[x][j] != p; j--) {
+            grid[x][j] = p;
         }
     }
 }

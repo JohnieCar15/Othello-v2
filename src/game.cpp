@@ -34,6 +34,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         board = new Board();
         board->init();
 
+        ai = new Ai();
+
     } else {
         isRunning = false;
     }
@@ -56,7 +58,9 @@ void Game::handleEvents() {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::pair p = coordinates();
-                board->insertPiece(p);
+                board->insertPiece(p, Piece::BLACK);
+                std::pair aip = ai->randomMove(board->availableMoves(Piece::WHITE));
+                board->insertPiece(aip, Piece::WHITE);
                 render();
                 std::cout << "Mouse click" << "\n";
             }

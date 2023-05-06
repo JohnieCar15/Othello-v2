@@ -6,6 +6,7 @@
 #include <utility>
 
 #include "board.h"
+#include "ai.h"
 
 class Game {
 public:
@@ -27,5 +28,6 @@ private:
     SDL_Window *window;
     SDL_Renderer *renderer;
     Board *board;
+    Ai *ai;
 
 };

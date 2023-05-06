@@ -3,8 +3,6 @@
 #include <vector>
 #include <iostream>
 
-#include "ai.h"
-
 enum Piece
 {
     EMPTY = 0,
@@ -18,19 +16,19 @@ public:
     ~Board();
 
     void init();
-    void insertPiece(std::pair<int, int> coordinates);
+    void insertPiece(std::pair<int, int> coordinates, Piece p);
     void drawBoard(SDL_Renderer *renderer);
-    bool topLeft(int x, int y);
-    bool top(int x, int y);
-    bool topRight(int x, int y);
-    bool right(int x, int y);
-    bool bottomRight(int x, int y);
-    bool bottom(int x, int y);
-    bool bottomLeft(int x, int y);
-    bool left(int x, int y);
-    void flipPieces(int x, int y);
+    bool topLeft(int x, int y, Piece p);
+    bool top(int x, int y, Piece p);
+    bool topRight(int x, int y, Piece p);
+    bool right(int x, int y, Piece p);
+    bool bottomRight(int x, int y, Piece p);
+    bool bottom(int x, int y, Piece p);
+    bool bottomLeft(int x, int y, Piece p);
+    bool left(int x, int y, Piece p);
+    void flipPieces(int x, int y, Piece p);
     void draw_move(SDL_Renderer * renderer, int centreX, int centreY, int radius);
-    std::vector<std::pair<int, int>> availableMoves();
+    std::vector<std::pair<int, int>> availableMoves(Piece p);
 
 private:
     Piece grid[8][8];
