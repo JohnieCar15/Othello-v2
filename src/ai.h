@@ -4,6 +4,7 @@ class Ai {
 public:
     Ai();
     ~Ai();
+
     int alphaBeta();
 
 

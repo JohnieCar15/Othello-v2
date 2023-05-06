@@ -56,6 +56,9 @@ link_libraries(game)
 add_library(board src/board.cpp)
 link_libraries(board)
 
+add_library(ai src/ai.cpp)
+link_libraries(ai)
+
 add_executable(Othello-v2 src/main.cpp)
 target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})
 

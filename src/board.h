@@ -3,6 +3,8 @@
 #include <vector>
 #include <iostream>
 
+#include "ai.h"
+
 enum Piece
 {
     EMPTY = 0,
