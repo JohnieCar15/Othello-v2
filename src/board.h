@@ -16,7 +16,7 @@ public:
     ~Board();
 
     void init();
-    void insertPiece(std::pair<int, int> coordinates, Piece p);
+    void insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<int, int>> moves, Piece p);
     void drawBoard(SDL_Renderer *renderer);
     bool topLeft(int x, int y, Piece p);
     bool top(int x, int y, Piece p);
@@ -32,5 +32,4 @@ public:
 
 private:
     Piece grid[8][8];
-    std::vector<std::pair<int, int>> moves;
 };

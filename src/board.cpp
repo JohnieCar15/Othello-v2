@@ -114,15 +114,14 @@ void Board::drawBoard(SDL_Renderer *renderer) {
     }
 
     // Note this is only for black
-    moves = availableMoves(Piece::BLACK);
-    for (std::pair<int, int> i : moves) {
+    for (std::pair<int, int> i : availableMoves(Piece::BLACK)) {
         draw_move(renderer, 50 + (100 * i.first), 50 + (100 * i.second), 40);
     }
 
 
 }
 
-void Board::insertPiece(std::pair<int, int> coordinates, Piece p) {
+void Board::insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<int, int>> moves, Piece p) {
     bool flag = false;
     for (std::pair<int, int> move : moves) {
         if (move.first == coordinates.first && move.second == coordinates.second) {
