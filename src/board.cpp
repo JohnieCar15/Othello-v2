@@ -331,3 +331,22 @@ void Board::flipPieces(int x, int y, Piece p) {
         }
     }
 }
+
+std::pair<int, int> Board::scores() {
+    int black = 0;
+    int white = 0;
+    // Fill in the rows
+    for (int i = 0; i < 8; i++) {
+        // Fill in the columns
+        for (int j = 0; j < 8; j++) {
+            if (grid[i][j] == Piece::BLACK) {
+                black++;
+            } else if (grid[i][j] == Piece::WHITE) {
+                white++;
+            }
+        }
+    }
+
+    std::pair<int, int> p = std::make_pair(black, white);
+    return p;
+}

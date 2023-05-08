@@ -28,6 +28,7 @@ public:
     bool left(int x, int y, Piece p);
     void flipPieces(int x, int y, Piece p);
     void draw_move(SDL_Renderer * renderer, int centreX, int centreY, int radius);
+    std::pair<int, int> scores();
     std::vector<std::pair<int, int>> availableMoves(Piece p);
 
 private:
