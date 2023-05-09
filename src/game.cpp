@@ -61,8 +61,6 @@ void Game::handleEvents() {
                 board->insertPiece(p, board->availableMoves(Piece::BLACK), Piece::BLACK);
                 std::pair aip = ai->randomMove(board->availableMoves(Piece::WHITE));
                 board->insertPiece(aip, board->availableMoves(Piece::WHITE), Piece::WHITE);
-                std::pair scores = board->scores();
-                std::cout << scores.first << " " << scores.second << "\n";
                 render();
                 std::cout << "Mouse click" << "\n";
             }
@@ -90,6 +88,9 @@ void Game::render() {
     SDL_RenderCopy(renderer, background, NULL, NULL);
     // Draw pieces onto board
     board->drawBoard(renderer);
+
+    std::pair scores = board->scores();
+    std::cout << scores.first << " " << scores.second << "\n";
     /* TODO: Draw available moves */
     SDL_RenderPresent(renderer);
 }
