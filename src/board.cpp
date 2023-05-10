@@ -121,7 +121,7 @@ void Board::drawBoard(SDL_Renderer *renderer) {
 
 }
 
-void Board::insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<int, int>> moves, Piece p) {
+bool Board::insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<int, int>> moves, Piece p) {
     bool flag = false;
     for (std::pair<int, int> move : moves) {
         if (move.first == coordinates.first && move.second == coordinates.second) {
@@ -129,13 +129,15 @@ void Board::insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<i
         }
     }
 
-    if (!flag) return;
+    if (!flag) return false;
 
     int x = coordinates.first;
     int y = coordinates.second;
 
     grid[x][y] = p;
     flipPieces(coordinates.first, coordinates.second, p);
+
+    return true;
 }
 
 bool Board::topLeft(int x, int y, Piece p) {

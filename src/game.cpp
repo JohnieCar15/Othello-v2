@@ -58,10 +58,11 @@ void Game::handleEvents() {
         case SDL_MOUSEBUTTONDOWN:
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::pair p = coordinates();
-                board->insertPiece(p, board->availableMoves(Piece::BLACK), Piece::BLACK);
-                std::pair aip = ai->randomMove(board->availableMoves(Piece::WHITE));
-                board->insertPiece(aip, board->availableMoves(Piece::WHITE), Piece::WHITE);
-                render();
+                if (board->insertPiece(p, board->availableMoves(Piece::BLACK), Piece::BLACK)) {
+                    std::pair aip = ai->randomMove(board->availableMoves(Piece::WHITE));
+                    board->insertPiece(aip, board->availableMoves(Piece::WHITE), Piece::WHITE);
+                    render();
+                }
                 std::cout << "Mouse click" << "\n";
             }
             break;
