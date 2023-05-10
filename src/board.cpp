@@ -263,14 +263,15 @@ std::vector<std::pair<int, int>> Board::availableMoves(Piece p) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (
-                topLeft(i, j, p) ||
+                (topLeft(i, j, p) ||
                 top(i, j, p) ||
                 topRight(i, j, p) ||
                 right(i, j, p) ||
                 bottomRight(i, j, p) ||
                 bottom(i, j, p) ||
                 bottomLeft(i, j, p) ||
-                left(i, j, p)
+                left(i, j, p)) &&
+                grid[i][j] == Piece::EMPTY
             ) {
                 std::pair move = std::make_pair(i, j);
                 moves.push_back(move);
