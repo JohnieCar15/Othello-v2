@@ -55,6 +55,7 @@ void draw_piece(SDL_Renderer *renderer, int x, int y, int radius, SDL_Color colo
 
 void Board::draw_move(SDL_Renderer * renderer, int centreX, int centreY, int radius)
 {
+   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
    const int diameter = (radius * 2);
 
    int x = (radius - 1);
