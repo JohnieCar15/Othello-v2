@@ -35,7 +35,7 @@ void Board::init() {
     }
 }
 
-void draw_piece(SDL_Renderer *renderer, int x, int y, int radius, SDL_Color color)
+void drawPiece(SDL_Renderer *renderer, int x, int y, int radius, SDL_Color color)
 {
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
     for (int w = 0; w < radius * 2; w++)
@@ -53,7 +53,7 @@ void draw_piece(SDL_Renderer *renderer, int x, int y, int radius, SDL_Color colo
     SDL_RenderPresent(renderer);
 }
 
-void Board::draw_move(SDL_Renderer * renderer, int centreX, int centreY, int radius)
+void Board::drawMove(SDL_Renderer * renderer, int centreX, int centreY, int radius)
 {
    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
    const int diameter = (radius * 2);
@@ -103,20 +103,20 @@ void Board::drawBoard(SDL_Renderer *renderer) {
                 color.r = 0;
                 color.g = 0;
                 color.b = 0;
-                draw_piece(renderer, 50 + (100 * i), 50 + (100 * j), 40, color);
+                drawPiece(renderer, 50 + (100 * i), 50 + (100 * j), 40, color);
             } else if (grid[i][j] == Piece::WHITE) {
                 SDL_Color color;
                 color.r = 255;
                 color.g = 255;
                 color.b = 255;
-                draw_piece(renderer, 50 + (100 * i), 50 + (100 * j), 40, color);
+                drawPiece(renderer, 50 + (100 * i), 50 + (100 * j), 40, color);
             }
         }
     }
 
     // Note this is only for black
     for (std::pair<int, int> i : availableMoves(Piece::BLACK)) {
-        draw_move(renderer, 50 + (100 * i.first), 50 + (100 * i.second), 40);
+        drawMove(renderer, 50 + (100 * i.first), 50 + (100 * i.second), 40);
     }
 
 

@@ -1,14 +1,12 @@
+#ifndef BOARD_H
+#define BOARD_H
+
 #include <SDL2/SDL.h>
 #include <utility>
 #include <vector>
 #include <iostream>
 
-enum Piece
-{
-    EMPTY = 0,
-    BLACK = 1,
-    WHITE = 2
-};
+#include "piece.h"
 
 class Board {
 public:
@@ -27,10 +25,12 @@ public:
     bool bottomLeft(int x, int y, Piece p);
     bool left(int x, int y, Piece p);
     void flipPieces(int x, int y, Piece p);
-    void draw_move(SDL_Renderer * renderer, int centreX, int centreY, int radius);
+    void drawMove(SDL_Renderer * renderer, int centreX, int centreY, int radius);
     std::pair<int, int> scores();
     std::vector<std::pair<int, int>> availableMoves(Piece p);
 
 private:
     Piece grid[8][8];
 };
+
+#endif 

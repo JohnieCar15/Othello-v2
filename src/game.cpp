@@ -59,11 +59,11 @@ void Game::handleEvents() {
             if (SDL_BUTTON_LEFT == event.button.button) {
                 std::pair p = coordinates();
                 if (board->insertPiece(p, board->availableMoves(Piece::BLACK), Piece::BLACK)) {
-                    std::pair aip = ai->randomMove(board->availableMoves(Piece::WHITE));
-                    board->insertPiece(aip, board->availableMoves(Piece::WHITE), Piece::WHITE);
+                    std::vector<std::pair<int, int>> whiteMoves = board->availableMoves(Piece::WHITE);
+                    std::pair aip = ai->randomMove(whiteMoves);
+                    board->insertPiece(aip, whiteMoves, Piece::WHITE);
                     render();
                 }
-                std::cout << "Mouse click" << "\n";
             }
             break;
         default:
