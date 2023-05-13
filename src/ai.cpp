@@ -10,7 +10,7 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> moves) {
     return moves.at(random_int);
 }
 
-int Ai::coinParity(Piece grid[8][8], Piece p) {
+float Ai::coinParity(Piece grid[8][8], Piece p) {
     int maxPlayer = 0;
     int minPlayer = 0;
     for (int i = 0; i < 8; i++) {
@@ -25,4 +25,13 @@ int Ai::coinParity(Piece grid[8][8], Piece p) {
 
     return (100 * (maxPlayer - minPlayer)) / (maxPlayer - minPlayer);
 
+}
+
+float Ai::mobility(std::vector<std::pair<int, int>> maxPlayer, std::vector<std::pair<int, int>> minPlayer) {
+    float maxPlayerSize = static_cast<float>(maxPlayer.size());
+    float minPlayerSize = static_cast<float>(minPlayer.size());
+    if (maxPlayerSize + minPlayerSize != 0) {
+        return (100 * (maxPlayerSize- minPlayerSize)) / (maxPlayerSize + minPlayerSize);
+    }
+    return 0;
 }
