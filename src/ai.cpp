@@ -11,8 +11,8 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> moves) {
 }
 
 float Ai::coinParity(Piece grid[8][8], Piece p) {
-    int maxPlayer = 0;
-    int minPlayer = 0;
+    float maxPlayer = 0;
+    float minPlayer = 0;
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             if (grid[i][j] == p) {
@@ -32,6 +32,40 @@ float Ai::mobility(std::vector<std::pair<int, int>> maxPlayer, std::vector<std::
     float minPlayerSize = static_cast<float>(minPlayer.size());
     if (maxPlayerSize + minPlayerSize != 0) {
         return (100 * (maxPlayerSize- minPlayerSize)) / (maxPlayerSize + minPlayerSize);
+    }
+    return 0;
+}
+
+float Ai::corners(Piece grid[8][8], Piece p) {
+    float maxPlayer = 0;
+    float minPlayer = 0;
+
+    if (grid[0][0] == p) {
+        maxPlayer++;
+    } else if (grid[0][0] != Piece::EMPTY) {
+        minPlayer++;
+    }
+
+    if (grid[0][7] == p) {
+        maxPlayer++;
+    } else if (grid[0][0] != Piece::EMPTY) {
+        minPlayer++;
+    }
+
+    if (grid[7][0] == p) {
+        maxPlayer++;
+    } else if (grid[0][0] != Piece::EMPTY) {
+        minPlayer++;
+    }
+
+    if (grid[7][7] == p) {
+        maxPlayer++;
+    } else if (grid[0][0] != Piece::EMPTY) {
+        minPlayer++;
+    }
+
+    if (maxPlayer + minPlayer != 0) {
+        return (100 * (maxPlayer - minPlayer)) / (maxPlayer + minPlayer);
     }
     return 0;
 }
