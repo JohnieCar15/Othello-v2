@@ -122,7 +122,7 @@ void Board::drawBoard(SDL_Renderer *renderer) {
 
 }
 
-bool Board::insertPiece(std::pair<int, int> coordinates, std::vector<std::pair<int, int>> moves, Piece p) {
+bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &moves, Piece p) {
     bool flag = false;
     for (std::pair<int, int> move : moves) {
         if (move.first == coordinates.first && move.second == coordinates.second) {
