@@ -10,6 +10,28 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> &moves) {
     return moves.at(random_int);
 }
 
+int Ai::minimax(int depth, int nodeIndex, bool isMax, int scores[], int h) {
+    // Terminating condition. i.e
+    // leaf node is reached
+    if (depth == h)
+        return scores[nodeIndex];
+ 
+    //  If current move is maximizer,
+    // find the maximum attainable
+    // value
+    if (isMax)
+       return std::max(minimax(depth+1, nodeIndex*2, false, scores, h),
+            minimax(depth+1, nodeIndex*2 + 1, false, scores, h));
+ 
+    // Else (If current move is Minimizer), find the minimum
+    // attainable value
+    else
+        return std::min(minimax(depth+1, nodeIndex*2, true, scores, h),
+            minimax(depth+1, nodeIndex*2 + 1, true, scores, h));
+}
+
+
+
 float Ai::coinParity(Piece (&grid)[8][8], Piece p) {
     float maxPlayer = 0;
     float minPlayer = 0;

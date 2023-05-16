@@ -5,6 +5,7 @@
 #include <utility>
 #include <cstdlib>
 #include <vector>
+#include <bits/stdc++.h>
 
 #include "piece.h"
 
@@ -14,7 +15,7 @@ public:
     ~Ai();
 
     std::pair<int, int> randomMove(std::vector<std::pair<int, int>> &moves);
-    std::pair<int, int> alphaBeta(std::vector<std::pair<int, int>> &moves);
+    int minimax(int depth, int nodeIndex, bool isMax, int scores[], int h);
 
     /* Captures difference in coins between max player and min player */
     float coinParity(Piece (&grid)[8][8], Piece p);
