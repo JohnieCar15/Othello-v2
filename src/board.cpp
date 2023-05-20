@@ -137,6 +137,7 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<
 
     grid[x][y] = p;
     flipPieces(coordinates.first, coordinates.second, p);
+    std::remove(moves.begin(), moves.end(), coordinates);
 
     return true;
 }
