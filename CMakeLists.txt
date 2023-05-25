@@ -39,12 +39,13 @@ set(CMAKE_CXX_EXE_LINKER_FLAGS_DEBUG_INIT "-fsanitize=address,undefined")
 set(CMAKE_CXX_EXE_LINKER_FLAGS_RELWITHDEBINFO_INIT "-fsanitize=address,undefined")
 
 
-# include(CTest)
-# enable_testing()
-
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
+
+enable_testing()
+add_library(catch2_main lib/catch2_main.cpp)
+target_include_directories(catch2_main PUBLIC lib)
 
 find_package(SDL2 REQUIRED)
 include_directories(Othello-v2 ${SDL2_INCLUDE_DIRS})
@@ -59,6 +60,14 @@ link_libraries(board)
 add_library(ai src/ai.cpp)
 link_libraries(ai)
 
-add_executable(Othello-v2 src/main.cpp)
-target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})
+link_libraries(catch2_main)
+link_libraries(ai)
+
+# add_executable(Othello-v2 src/main.cpp)
+# target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})
+
+add_executable(ai_exe src/ai.test.cpp)
+target_link_libraries(ai_exe ${SDL2_LIBRARIES})
+add_test(ai_test ai_exe)
+
 
