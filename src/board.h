@@ -15,7 +15,6 @@ public:
 
     void init();
     bool insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &moves, Piece p);
-    void drawBoard(SDL_Renderer *renderer);
     bool topLeft(int x, int y, Piece p);
     bool top(int x, int y, Piece p);
     bool topRight(int x, int y, Piece p);
@@ -25,12 +24,12 @@ public:
     bool bottomLeft(int x, int y, Piece p);
     bool left(int x, int y, Piece p);
     void flipPieces(int x, int y, Piece p);
-    void drawMove(SDL_Renderer * renderer, int centreX, int centreY, int radius);
     std::pair<int, int> scores();
     std::vector<std::pair<int, int>> availableMoves(Piece p);
+    Piece (*getGrid())[8] { return grid; };
 
 private:
     Piece grid[8][8];
 };
 
-#endif 
+#endif

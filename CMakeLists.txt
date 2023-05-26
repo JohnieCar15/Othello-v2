@@ -63,11 +63,11 @@ link_libraries(ai)
 link_libraries(catch2_main)
 link_libraries(ai)
 
-# add_executable(Othello-v2 src/main.cpp)
-# target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})
+add_executable(Othello-v2 src/main.cpp)
+target_link_libraries(Othello-v2 ${SDL2_LIBRARIES})
 
-add_executable(ai_exe src/ai.test.cpp)
-target_link_libraries(ai_exe ${SDL2_LIBRARIES})
-add_test(ai_test ai_exe)
+# add_executable(ai_exe src/ai.test.cpp)
+# target_link_libraries(ai_exe ${SDL2_LIBRARIES})
+# add_test(ai_test ai_exe)
 
 
