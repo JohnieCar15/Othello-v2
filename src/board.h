@@ -27,6 +27,7 @@ public:
     std::pair<int, int> scores();
     std::vector<std::pair<int, int>> availableMoves(Piece p);
     Piece (*getGrid())[8] { return grid; };
+    bool isFinished();
 
 private:
     Piece grid[8][8];

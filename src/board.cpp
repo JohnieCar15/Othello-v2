@@ -268,3 +268,7 @@ std::pair<int, int> Board::scores() {
     std::pair<int, int> p = std::make_pair(black, white);
     return p;
 }
+
+bool Board::isFinished() {
+    return availableMoves(Piece::WHITE).size() == 0 && availableMoves(Piece::BLACK).size() == 0;
+}
