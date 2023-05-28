@@ -35,6 +35,7 @@ private:
     SDL_Renderer *renderer;
     Board *board;
     Ai *ai;
+    bool isBlack;
 
 };
 
