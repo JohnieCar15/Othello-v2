@@ -23,7 +23,11 @@ public:
 
     /* Captures difference in coins between max player and min player */
     float coinParity(Piece (&grid)[8][8], Piece p);
+
+    /* Captures relative mobility between number of moves between players */
     float mobility(std::vector<std::pair<int, int>> &maxPlayer, std::vector<std::pair<int, int>> &minPlayer);
+    
+    /* Corners are important since they can't be outflanked */
     float corners(Piece (&grid)[8][8], Piece p);
 };
 
