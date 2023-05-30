@@ -34,7 +34,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         board = new Board();
         board->init();
 
-        ai = new Ai();
+        ai = new Ai(board);
 
     } else {
         isRunning = false;

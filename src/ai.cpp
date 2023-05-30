@@ -1,7 +1,6 @@
 #include "ai.h"
 #include <iostream>
 
-Ai::Ai() {}
 Ai::~Ai() {}
 
 
@@ -10,75 +9,16 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> &moves) {
     return moves.at(random_int);
 }
 
-int Ai::minimax(int depth, int nodeIndex, bool isMax, int scores[], int h) {
-    // Terminating condition. i.e
-    // leaf node is reached
-    if (depth == h)
-        return scores[nodeIndex];
- 
-    //  If current move is maximizer,
-    // find the maximum attainable
-    // value
-    if (isMax)
-       return std::max(minimax(depth+1, nodeIndex*2, false, scores, h),
-            minimax(depth+1, nodeIndex*2 + 1, false, scores, h));
- 
-    // Else (If current move is Minimizer), find the minimum
-    // attainable value
-    else
-        return std::min(minimax(depth+1, nodeIndex*2, true, scores, h),
-            minimax(depth+1, nodeIndex*2 + 1, true, scores, h));
-}
-
 // Returns optimal value for
 // current player(Initially called
 // for root and maximizer)
-int Ai::alphaBeta(int depth, int nodeIndex, bool maximizingPlayer, int values[], int alpha, int beta) {
-     
-    // Terminating condition. i.e
-    // leaf node is reached
-    if (depth == 3)
-        return values[nodeIndex];
- 
-    if (maximizingPlayer)
-    {
-        int best = MIN;
- 
-        // Recur for left and
-        // right children
-        for (int i = 0; i < 2; i++)
-        {
-             
-            int val = alphaBeta(depth + 1, nodeIndex * 2 + i,
-                              false, values, alpha, beta);
-            best = std::max(best, val);
-            alpha = std::max(alpha, best);
- 
-            // Alpha Beta Pruning
-            if (beta <= alpha)
-                break;
-        }
-        return best;
-    }
-    else
-    {
-        int best = MAX;
- 
-        // Recur for left and
-        // right children
-        for (int i = 0; i < 2; i++)
-        {
-            int val = alphaBeta(depth + 1, nodeIndex * 2 + i,
-                              true, values, alpha, beta);
-            best = std::min(best, val);
-            beta = std::min(beta, best);
- 
-            // Alpha Beta Pruning
-            if (beta <= alpha)
-                break;
-        }
-        return best;
-    }
+int Ai::alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, int beta) {
+    (void) board;
+    (void) depth;  
+    (void) maximizingPlayer;
+    (void) alpha;
+    (void) beta;
+    return 0;
 }
 
 
