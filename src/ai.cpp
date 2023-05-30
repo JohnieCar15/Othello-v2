@@ -23,7 +23,8 @@ int Ai::alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, in
 
 
 
-float Ai::coinParity(Piece (&grid)[8][8], Piece p) {
+float Ai::coinParity(Piece p) {
+    Piece (*grid)[8] = board_->getGrid();
     float maxPlayer = 0;
     float minPlayer = 0;
     for (int i = 0; i < 8; i++) {
@@ -49,7 +50,8 @@ float Ai::mobility(std::vector<std::pair<int, int>> &maxPlayer, std::vector<std:
     return 0;
 }
 
-float Ai::corners(Piece (&grid)[8][8], Piece p) {
+float Ai::corners(Piece p) {
+    Piece (*grid)[8] = board_->getGrid();
     float maxPlayer = 0;
     float minPlayer = 0;
 

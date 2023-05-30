@@ -22,13 +22,13 @@ public:
     int alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, int beta);
 
     /* Captures difference in coins between max player and min player */
-    float coinParity(Piece (&grid)[8][8], Piece p);
+    float coinParity(Piece p);
 
     /* Captures relative mobility between number of moves between players */
     float mobility(std::vector<std::pair<int, int>> &maxPlayer, std::vector<std::pair<int, int>> &minPlayer);
 
     /* Corners are important since they can't be outflanked */
-    float corners(Piece (&grid)[8][8], Piece p);    
+    float corners(Piece p);    
 private:
     Board *board_;
 };
