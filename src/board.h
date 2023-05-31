@@ -14,7 +14,7 @@ public:
     ~Board();
 
     void init();
-    bool insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &moves, Piece p);
+    bool insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &availableMoves, Piece p);
     bool topLeft(int x, int y, Piece p);
     bool top(int x, int y, Piece p);
     bool topRight(int x, int y, Piece p);
@@ -31,6 +31,7 @@ public:
 
 private:
     Piece grid[8][8];
+    std::vector<std::pair<int, int>> moves;
 };
 
 #endif
