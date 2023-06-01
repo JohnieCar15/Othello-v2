@@ -56,6 +56,14 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<
     return true;
 }
 
+void Board::playMoves() {
+    Piece p = Piece::BLACK;
+    for (auto move : moves) {
+    
+
+    }
+}
+
 bool Board::topLeft(int x, int y, Piece p) {
     for (int i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--) {
         if (grid[i][j] == p) {

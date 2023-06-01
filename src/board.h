@@ -15,6 +15,7 @@ public:
 
     void init();
     bool insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &availableMoves, Piece p);
+    void playMoves();
     bool topLeft(int x, int y, Piece p);
     bool top(int x, int y, Piece p);
     bool topRight(int x, int y, Piece p);
