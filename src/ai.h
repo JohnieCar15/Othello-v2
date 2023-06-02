@@ -18,7 +18,7 @@ public:
     Ai(Board *board) :board_{board} {}
     ~Ai();
 
-    std::pair<int, int> randomMove(std::vector<std::pair<int, int>> &moves);
+    std::pair<int, int> randomMove(std::vector<std::pair<int, int>> moves);
     int alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, int beta);
 
     /* Captures difference in coins between max player and min player */
@@ -28,9 +28,9 @@ public:
     float mobility(std::vector<std::pair<int, int>> &maxPlayer, std::vector<std::pair<int, int>> &minPlayer);
 
     /* Corners are important since they can't be outflanked */
-    float corners(Piece p);    
+    float corners(Piece p);
 private:
     Board *board_;
 };
 
-#endif 
+#endif

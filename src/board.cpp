@@ -35,11 +35,13 @@ void Board::init() {
     }
 }
 
-bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<int, int>> &availableMoves, Piece p) {
+bool Board::insertPiece(std::pair<int, int> &coordinates, Piece p) {
     bool flag = false;
-    for (std::pair<int, int> move : availableMoves) {
+    std::vector<std::pair<int, int>> pMoves = availableMoves(p);
+    for (std::pair<int, int> move : pMoves) {
         if (move.first == coordinates.first && move.second == coordinates.second) {
             flag = true;
+            break;
         }
     }
 
@@ -50,7 +52,6 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<
 
     grid[x][y] = p;
     flipPieces(coordinates.first, coordinates.second, p);
-    std::remove(availableMoves.begin(), availableMoves.end(), coordinates);
     moves.push_back(coordinates);
 
     return true;
@@ -59,8 +60,8 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, std::vector<std::pair<
 void Board::playMoves() {
     Piece p = Piece::BLACK;
     for (auto move : moves) {
-    
-
+        insertPiece(move, p);
+        p = (p == Piece::BLACK) ? Piece::WHITE : Piece::BLACK;
     }
 }
 
