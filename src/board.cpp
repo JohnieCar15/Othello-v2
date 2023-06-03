@@ -57,10 +57,12 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, Piece p) {
     return true;
 }
 
-void Board::playMoves() {
+void Board::playMoves(std::size_t steps) {
+    if (steps >= moves.size()) return;
+    init();
     Piece p = Piece::BLACK;
-    for (auto move : moves) {
-        insertPiece(move, p);
+    for (std::size_t i = 0; i < steps; i++) {
+        insertPiece(moves[i], p);
         p = (p == Piece::BLACK) ? Piece::WHITE : Piece::BLACK;
     }
 }

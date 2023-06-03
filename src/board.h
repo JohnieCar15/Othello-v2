@@ -15,7 +15,7 @@ public:
 
     void init();
     bool insertPiece(std::pair<int, int> &coordinates, Piece p);
-    void playMoves();
+    void playMoves(std::size_t steps);
     bool topLeft(int x, int y, Piece p);
     bool top(int x, int y, Piece p);
     bool topRight(int x, int y, Piece p);
