@@ -58,6 +58,9 @@ bool Board::insertPiece(std::pair<int, int> &coordinates, Piece p) {
 }
 
 void Board::playMoves(std::size_t steps) {
+    /*
+    Play moves out to certain amount of steps
+    */
     if (steps >= moves.size()) return;
     init();
     Piece p = Piece::BLACK;
