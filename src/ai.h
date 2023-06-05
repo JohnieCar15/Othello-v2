@@ -30,6 +30,7 @@ public:
     /* Corners are important since they can't be outflanked */
     float corners(Piece p);
 private:
+    /* Pointer to board that contains ai */
     Board *board_;
 };
 
