@@ -70,7 +70,10 @@ float Ai::coinParity(Piece p) {
 
 }
 
-float Ai::mobility(std::vector<std::pair<int, int>> &maxPlayer, std::vector<std::pair<int, int>> &minPlayer) {
+float Ai::mobility(Piece p) {
+    Piece opp = (p == Piece::BLACK) ? Piece::WHITE : Piece::BLACK;
+    std::vector<std::pair<int, int>> maxPlayer = board_->availableMoves(p);
+    std::vector<std::pair<int, int>> minPlayer = board_->availableMoves(opp);
     float maxPlayerSize = static_cast<float>(maxPlayer.size());
     float minPlayerSize = static_cast<float>(minPlayer.size());
     if (maxPlayerSize + minPlayerSize != 0) {
