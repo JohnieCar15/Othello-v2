@@ -41,6 +41,8 @@ int Ai::alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, in
     return minEva  
     
     */
+   if (depth == 0) return 0;
+
     
     (void) board;
     (void) depth;
