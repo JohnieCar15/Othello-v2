@@ -19,7 +19,7 @@ public:
     ~Ai();
 
     std::pair<int, int> randomMove(std::vector<std::pair<int, int>> moves);
-    int alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, int beta);
+    int alphaBeta(Piece **board, int depth, Piece maximizingPlayer, int alpha, int beta);
 
     /* Captures difference in coins between max player and min player */
     float coinParity(Piece p);

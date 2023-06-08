@@ -12,7 +12,7 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> moves) {
 // Returns optimal value for
 // current player(Initially called
 // for root and maximizer)
-int Ai::alphaBeta(Piece **board, int depth, bool maximizingPlayer, int alpha, int beta) {
+int Ai::alphaBeta(Piece **board, int depth, Piece maximizingPlayer, int alpha, int beta) {
     /*
     PSEUDO CODE
 
