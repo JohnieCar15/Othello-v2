@@ -15,23 +15,20 @@ const int MIN = -1000;
 
 class Ai {
 public:
-    Ai(Board *board) :board_{board} {}
+    Ai();
     ~Ai();
 
     std::pair<int, int> randomMove(std::vector<std::pair<int, int>> moves);
-    int alphaBeta(Piece **board, int depth, Piece maximizingPlayer, int alpha, int beta);
+    int alphaBeta(Board board, int depth, Piece maximizingPlayer, int alpha, int beta);
 
     /* Captures difference in coins between max player and min player */
-    float coinParity(Piece p);
+    float coinParity(Board board, Piece p);
 
     /* Captures relative mobility between number of moves between players */
-    float mobility(Piece p);
+    float mobility(Board board, Piece p);
 
     /* Corners are important since they can't be outflanked */
-    float corners(Piece p);
-private:
-    /* Pointer to board that contains ai */
-    Board *board_;
+    float corners(Board board, Piece p);
 };
 
 #endif

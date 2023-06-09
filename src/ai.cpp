@@ -1,6 +1,6 @@
 #include "ai.h"
 #include <iostream>
-
+Ai::Ai() {}
 Ai::~Ai() {}
 
 
@@ -12,7 +12,7 @@ std::pair<int, int> Ai::randomMove(std::vector<std::pair<int, int>> moves) {
 // Returns optimal value for
 // current player(Initially called
 // for root and maximizer)
-int Ai::alphaBeta(Piece **board, int depth, Piece maximizingPlayer, int alpha, int beta) {
+int Ai::alphaBeta(Board board, int depth, Piece maximizingPlayer, int alpha, int beta) {
     /*
     PSEUDO CODE
 
@@ -54,8 +54,8 @@ int Ai::alphaBeta(Piece **board, int depth, Piece maximizingPlayer, int alpha, i
 
 
 
-float Ai::coinParity(Piece p) {
-    Piece (*grid)[8] = board_->getGrid();
+float Ai::coinParity(Board board, Piece p) {
+    Piece (*grid)[8] = board.getGrid();
     float maxPlayer = 0;
     float minPlayer = 0;
     for (int i = 0; i < 8; i++) {
@@ -72,10 +72,10 @@ float Ai::coinParity(Piece p) {
 
 }
 
-float Ai::mobility(Piece p) {
+float Ai::mobility(Board board, Piece p) {
     Piece opp = (p == Piece::BLACK) ? Piece::WHITE : Piece::BLACK;
-    std::vector<std::pair<int, int>> maxPlayer = board_->availableMoves(p);
-    std::vector<std::pair<int, int>> minPlayer = board_->availableMoves(opp);
+    std::vector<std::pair<int, int>> maxPlayer = board.availableMoves(p);
+    std::vector<std::pair<int, int>> minPlayer = board.availableMoves(opp);
     float maxPlayerSize = static_cast<float>(maxPlayer.size());
     float minPlayerSize = static_cast<float>(minPlayer.size());
     if (maxPlayerSize + minPlayerSize != 0) {
@@ -84,8 +84,8 @@ float Ai::mobility(Piece p) {
     return 0;
 }
 
-float Ai::corners(Piece p) {
-    Piece (*grid)[8] = board_->getGrid();
+float Ai::corners(Board board, Piece p) {
+    Piece (*grid)[8] = board.getGrid();
     float maxPlayer = 0;
     float minPlayer = 0;
 
