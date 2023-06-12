@@ -11,6 +11,7 @@
 class Board {
 public:
     Board();
+    Board( const Board & ) = default;
     ~Board();
 
     void init();
