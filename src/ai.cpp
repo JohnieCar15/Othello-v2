@@ -41,7 +41,7 @@ float Ai::alphaBeta(Board board, int depth, Piece maximizingPlayer, int alpha, i
     return minEva  
     
     */
-   if (depth == 0) {
+   if (depth == 0 || board.isFinished()) {
         return coinParity(board, maximizingPlayer) + mobility(board, maximizingPlayer) + corners(board, maximizingPlayer); 
    }
 
