@@ -45,6 +45,15 @@ float Ai::alphaBeta(Board board, int depth, Piece maximizingPlayer, int alpha, i
         return coinParity(board, maximizingPlayer) + mobility(board, maximizingPlayer) + corners(board, maximizingPlayer); 
    }
 
+   if (maximizingPlayer) {
+        float maxEva = std::numeric_limits<float>::infinity();
+        (void) maxEva;
+
+   } else {
+        float minEva = -std::numeric_limits<float>::infinity();
+        (void) minEva;
+   }
+
     
     (void) board;
     (void) depth;
