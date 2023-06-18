@@ -42,22 +42,29 @@ float Ai::alphaBeta(Board board, int depth, Piece maximizingPlayer, int alpha, i
     
     */
    if (depth == 0 || board.isFinished()) {
-        return coinParity(board, maximizingPlayer) + mobility(board, maximizingPlayer) + corners(board, maximizingPlayer); 
+        return coinParity(board, Piece::WHITE) + mobility(board, Piece::WHITE) + corners(board, Piece::WHITE); 
    }
 
-   if (maximizingPlayer) {
+   if (maximizingPlayer == Piece::WHITE) {
         float maxEva = std::numeric_limits<float>::infinity();
+        std::vector<std::pair<int, int>> playerMoves = board.availableMoves(Piece::WHITE);
+        for (auto move : playerMoves) {
+            board.insertPiece(move, Piece::WHITE);
+        }
         (void) maxEva;
 
    } else {
         float minEva = -std::numeric_limits<float>::infinity();
+        std::vector<std::pair<int, int>> playerMoves = board.availableMoves(Piece::BLACK);
+        for (auto move : playerMoves) {
+            board.insertPiece(move, Piece::BLACK);
+        }
         (void) minEva;
    }
 
     
     (void) board;
     (void) depth;
-    (void) maximizingPlayer;
     (void) alpha;
     (void) beta;
     return 0;
